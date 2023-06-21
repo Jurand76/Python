@@ -1,9 +1,10 @@
 import requests
 import json
 import random
+import apihidden
 
 url = "https://api.openai.com/v1/chat/completions"
-apiKey = "Bearer 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"
+apiKey = apihidden.getApi()
 subject_database = ["animals","geography","cars","boats","history","World War II","heroes","buildings","computer science","Python coding","API requests","Docker"]
 level=0
 mistakes=0
