@@ -30,12 +30,11 @@ def convertToHash(text):
     hashObject = hashlib.new('md5')
     hashObject.update(text.encode('utf-8'))
     hashHex = hashObject.hexdigest()
-    return str(int(hashHex, 16))
+    return int(hashHex, 16)
 
 # shortening - using Base62 algorithm
 
-def encodeBase62(hashString):
-    hash = int(hashString)
+def encodeBase62(hash):
     baseChars = string.digits + string.ascii_letters
     baseSize = len(baseChars)
     base62 = ''
