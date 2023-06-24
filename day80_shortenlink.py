@@ -65,10 +65,10 @@ fileName = currentDir + r'\links.txt';
 # getting link from user
 
 userLink = inputLink()
-readDatabase()
 
 # checking link in database file and converting if not exists
 
+readDatabase()
 if userLink in linksDatabase:
     print('Shortened link exists in database: ' + linksDatabase[userLink])
 else:
