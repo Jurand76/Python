@@ -2,6 +2,8 @@ import os
 import hashlib
 import string
 
+# reading link from user
+
 def inputLink():
     inputText = input('Enter URL: ');
     if len(inputText) < 3:
@@ -12,6 +14,8 @@ def inputLink():
         return 'Error'
     return inputText
 
+# reading database
+
 def readDatabase():
     if os.path.exists(fileName):
         file = open(fileName, "r")
@@ -20,11 +24,15 @@ def readDatabase():
             link, shorten = readLine.split(' ')
             linksDatabase[link] = shorten
 
+# hashing - MD5 encryption
+
 def convertToHash(text):
     hashObject = hashlib.new('md5')
     hashObject.update(text.encode('utf-8'))
     hashHex = hashObject.hexdigest()
     return str(int(hashHex, 16))
+
+# shortening - using Base62 algorithm
 
 def encodeBase62(hashString):
     hash = int(hashString)
@@ -36,6 +44,8 @@ def encodeBase62(hashString):
         base62 = baseChars[remainder] + base62
     return base62
     
+# saving new shortened link to file
+
 def saveToFile(text1, text2):
     if os.path.exists(fileName):
         file = open(fileName, "a")
@@ -57,6 +67,8 @@ fileName = currentDir + r'\links.txt';
 
 userLink = inputLink()
 readDatabase()
+
+# checking link in database file and converting if not exists
 
 if userLink in linksDatabase:
     print('Shortened link exists in database: ' + linksDatabase[userLink])
