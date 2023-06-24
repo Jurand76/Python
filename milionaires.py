@@ -5,7 +5,7 @@ import apihidden
 
 url = "https://api.openai.com/v1/chat/completions"
 apiKey = apihidden.getApi()
-subject_database = ["animals","geography","cars","boats","history","World War II","heroes","buildings","computer science","Python coding","API requests","Docker"]
+subject_database = ["animals","biology", "Darwin's theory", "journeys", "physics", "computer sciences", "geography","cars","boats","history","World War II","heroes","buildings","computer science","Python coding","API requests","Docker"]
 level=0
 mistakes=0
 
